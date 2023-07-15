@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,9 +8,13 @@ public class P2 : MonoBehaviour
     private float hMove;
     private float vMove;
 
-    [SerializeField] private float moveSpeed = 1f;
+    [SerializeField] private float normMoveSpeed = 1f;
+    [SerializeField] private float wallMoveSpeed = 0.5f;
 
     private Rigidbody rb;
+
+    private bool inWall = false;
+    private int inWalls = 0;
     
     // Start is called before the first frame update
     void Start()
@@ -24,9 +29,37 @@ public class P2 : MonoBehaviour
         vMove = Input.GetAxis("Vertical_P2");
 
     }
-
+    
     private void FixedUpdate()
     {
-        rb.velocity = new Vector3(hMove * moveSpeed, rb.velocity.y, vMove * moveSpeed);
+        if (inWall)
+        {
+            rb.velocity = new Vector3(hMove * wallMoveSpeed, rb.velocity.y, vMove * wallMoveSpeed);
+        }
+        else
+        {
+            rb.velocity = new Vector3(hMove * normMoveSpeed, rb.velocity.y, vMove * normMoveSpeed);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("WallSlow"))
+        {
+            inWall = true;
+            inWalls++;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("WallSlow") && inWall)
+        {
+            inWalls--;
+            if (inWalls < 1)
+            {
+                inWall = false;
+            }
+        }
     }
 }

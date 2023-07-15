@@ -31,14 +31,4 @@ public class P1 : MonoBehaviour
     {
         rb.velocity = new Vector3(hMove * moveSpeed, rb.velocity.y, vMove * moveSpeed);
     }
-
-    private void OnTriggerStay(Collider other)
-    {
-
-        if(other.CompareTag("Light") && Input.GetKeyDown(KeyCode.E))
-        {
-            Debug.Log("av det brander");
-            other.transform.GetChild(1).gameObject.SetActive(true);
-        }
-    }
 }

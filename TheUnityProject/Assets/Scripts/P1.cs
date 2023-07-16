@@ -24,7 +24,13 @@ public class P1 : MonoBehaviour
     {
         hMove = Input.GetAxis("Horizontal_P1");
         vMove = Input.GetAxis("Vertical_P1");
-
+        Vector3 movementDirection = new Vector3(hMove, 0, vMove);
+        movementDirection.Normalize();
+        
+        if (movementDirection != Vector3.zero)
+        {
+            transform.forward = movementDirection;
+        }
     }
 
     private void FixedUpdate()

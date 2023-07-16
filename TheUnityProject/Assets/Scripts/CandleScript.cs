@@ -7,18 +7,27 @@ public class CandleScript : MonoBehaviour
 {
     private bool player1IsNear;
     private bool player2IsNear;
+    private Transform flame;
 
     // Update is called once per frame
+
+    private void Start()
+    {
+        flame = gameObject.transform.GetChild(0).gameObject.transform.Find("Flame");
+
+    }
+
     void Update()
     {
         if (player1IsNear && Input.GetKeyDown(KeyCode.E))
         {
-            transform.GetChild(1).gameObject.SetActive(true);
+            flame.gameObject.SetActive(true);
             
         }
         else if (player2IsNear && Input.GetKeyDown(KeyCode.RightControl))
         {
-            transform.GetChild(1).gameObject.SetActive(false);
+            flame.gameObject.SetActive(false);
+         
         }
     }
 

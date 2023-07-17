@@ -18,9 +18,7 @@ public class RoomLightCheckScript : MonoBehaviour
     void Start()
     {
         lightAmount = lights.Count;
-        
-        Debug.Log(lightAmount);
-        
+
         roomLight = gameObject.transform.GetChild(0);
         roomNeutral = gameObject.transform.GetChild(1);
     }
@@ -32,7 +30,6 @@ public class RoomLightCheckScript : MonoBehaviour
         for (int i = 0; i < lightAmount; i++)
         {
             flame = lights[i].gameObject.transform.GetChild(0).gameObject.transform.Find("Flame");
-            Debug.Log("test");
             if (flame.gameObject.activeSelf == true)
             {
                 lightsOn++;
@@ -54,6 +51,11 @@ public class RoomLightCheckScript : MonoBehaviour
         {
             roomLight.gameObject.SetActive(false);
             roomNeutral.gameObject.SetActive(true);
+        }
+        
+        else if (lightsOn <= 0)
+        {
+            roomNeutral.gameObject.SetActive(false);
         }
     }
 }

@@ -5,13 +5,21 @@ using UnityEngine;
 
 public class RoomLightCheckScript : MonoBehaviour
 {
-    private int lightAmount;
+    private int lightAmount = 0;
     private int lightsOn;
     private Transform roomLight;
+
+    [SerializeField] private List<GameObject> lights;
 
     // Start is called before the first frame update
     void Start()
     {
+        // lights.førstelys.Getchild(0).
+        
+        foreach (Transform child in transform.GetComponentsInChildren<Transform>()) {
+            // mere kan indsættes her?
+        }
+        
         roomLight = gameObject.transform.GetChild(0);
     }
 
@@ -20,6 +28,8 @@ public class RoomLightCheckScript : MonoBehaviour
     {
         if (lightsOn >= lightAmount)
         {
+            Debug.Log("Lights on: " + lightsOn);
+            Debug.Log("lightAmount : " + lightAmount);
             roomLight.gameObject.SetActive(true);
         }
 
@@ -29,6 +39,7 @@ public class RoomLightCheckScript : MonoBehaviour
         }
     }
 
+    //collider.bounds
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Light"))
@@ -50,3 +61,4 @@ public class RoomLightCheckScript : MonoBehaviour
         }
     }
 }
+

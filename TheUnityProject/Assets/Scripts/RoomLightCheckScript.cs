@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class RoomLightCheckScript : MonoBehaviour
@@ -8,56 +9,51 @@ public class RoomLightCheckScript : MonoBehaviour
     private int lightAmount = 0;
     private int lightsOn;
     private Transform roomLight;
+    private Transform roomNeutral;
 
     [SerializeField] private List<GameObject> lights;
-
+    private Transform flame;
+    
     // Start is called before the first frame update
     void Start()
     {
-        // lights.førstelys.Getchild(0).
+        lightAmount = lights.Count;
         
-        foreach (Transform child in transform.GetComponentsInChildren<Transform>()) {
-            // mere kan indsættes her?
-        }
+        Debug.Log(lightAmount);
         
         roomLight = gameObject.transform.GetChild(0);
+        roomNeutral = gameObject.transform.GetChild(1);
     }
 
     // Update is called once per frame
     void Update()
     {
+        lightsOn = 0;
+        for (int i = 0; i < lightAmount; i++)
+        {
+            flame = lights[i].gameObject.transform.GetChild(0).gameObject.transform.Find("Flame");
+            Debug.Log("test");
+            if (flame.gameObject.activeSelf == true)
+            {
+                lightsOn++;
+            }
+            else
+            {
+                lightsOn--;
+            }
+        }
+        
         if (lightsOn >= lightAmount)
         {
-            Debug.Log("Lights on: " + lightsOn);
-            Debug.Log("lightAmount : " + lightAmount);
+     
             roomLight.gameObject.SetActive(true);
+            roomNeutral.gameObject.SetActive(false);
         }
 
-        else if (lightsOn <= 0)
+        else if (lightsOn <= lightAmount)
         {
             roomLight.gameObject.SetActive(false);
-        }
-    }
-
-    //collider.bounds
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Light"))
-        {
-            lightAmount++;
-        }
-
-        if (other.CompareTag("Flame"))
-        {
-            lightsOn++;
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Flame"))
-        {
-            lightsOn--;
+            roomNeutral.gameObject.SetActive(true);
         }
     }
 }

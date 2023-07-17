@@ -32,7 +32,7 @@ Transform:
   m_Children:
   - {fileID: 1588828645188823478}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1501819836114822145
 MonoBehaviour:
@@ -93,7 +93,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7911477940026620014}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0.00321, y: -0.0004, z: 0.05203}
+  m_LocalPosition: {x: 0, y: -0, z: 0.05639}
   m_LocalScale: {x: 0.0075907223, y: 0.0075907237, z: 0.0075907223}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -112,8 +112,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.8345694, b: 0.5518868, a: 1}
-  m_Intensity: 0.18
-  m_Range: 0.2625156
+  m_Intensity: 35
+  m_Range: 0.17269622
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -297,6 +297,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3316992658331686828, guid: 3b070a06d8981e6438ddf0b8ffd5dafc,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -5,14 +5,14 @@ using UnityEngine;
 
 public class RoomLightCheckScript : MonoBehaviour
 {
-
     private int lightAmount;
-
     private int lightsOn;
+    private Transform roomLight;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        roomLight = gameObject.transform.GetChild(0);
     }
 
     // Update is called once per frame
@@ -20,12 +20,12 @@ public class RoomLightCheckScript : MonoBehaviour
     {
         if (lightsOn >= lightAmount)
         {
-            //Bunnyroom
+            roomLight.gameObject.SetActive(true);
         }
-        
+
         else if (lightsOn <= 0)
         {
-            //Ghostroom
+            roomLight.gameObject.SetActive(false);
         }
     }
 

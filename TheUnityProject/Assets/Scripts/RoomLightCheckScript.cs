@@ -7,18 +7,27 @@ using UnityEngine;
 public class RoomLightCheckScript : MonoBehaviour
 {
     private int lightAmount = 0;
-    private int lightsOn;
+    private int lightsOnInTotal = 0;
     private Transform roomLight;
     private Transform roomNeutral;
 
     [SerializeField] private List<GameObject> lights;
     private Transform flame;
-    
+
+    private CandleScript candles;
+
     // Start is called before the first frame update
     void Start()
     {
         lightAmount = lights.Count;
 
+        //Check how many lights are on
+        for (int i = 0; i < lightAmount; i++)
+        {
+            candles = lights[i].GetComponent<CandleScript>();
+            lightsOnInTotal += candles.currentLightState;
+        }
+        
         roomLight = gameObject.transform.GetChild(0);
         roomNeutral = gameObject.transform.GetChild(1);
     }
@@ -26,35 +35,36 @@ public class RoomLightCheckScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        lightsOn = 0;
         for (int i = 0; i < lightAmount; i++)
         {
-            flame = lights[i].gameObject.transform.GetChild(0).gameObject.transform.Find("Flame");
-            if (flame.gameObject.activeSelf == true)
+            candles = lights[i].GetComponent<CandleScript>();
+            if (candles.previousLightState != candles.currentLightState)
             {
-                lightsOn++;
+                Debug.Log("Lights on: " + candles.currentLightState);
+                lightsOnInTotal += candles.currentLightState;
+                candles.previousLightState = candles.currentLightState;
             }
-            else
-            {
-                lightsOn--;
-            }
+            
         }
         
-        if (lightsOn >= lightAmount)
+        //Change roomlight depending on lightstate
+        if (lightsOnInTotal >= lightAmount)
         {
-     
+            Debug.Log("LightRoom");
             roomLight.gameObject.SetActive(true);
             roomNeutral.gameObject.SetActive(false);
         }
 
-        else if (lightsOn <= lightAmount)
+        if (lightsOnInTotal > 0 && lightsOnInTotal < lightAmount)
         {
+            Debug.Log("NeutralRoom");
             roomLight.gameObject.SetActive(false);
             roomNeutral.gameObject.SetActive(true);
         }
         
-        else if (lightsOn <= 0)
+        if (lightsOnInTotal <= 0)
         {
+            Debug.Log("DarkRoom");
             roomNeutral.gameObject.SetActive(false);
         }
     }

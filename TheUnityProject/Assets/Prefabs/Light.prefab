@@ -32,7 +32,7 @@ Transform:
   m_Children:
   - {fileID: 1588828645188823478}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1501819836114822145
 MonoBehaviour:
@@ -65,8 +65,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4.2921233, y: 2.184709, z: 4.5287395}
-  m_Center: {x: 0.5062673, y: -0.59235454, z: -0.66602165}
+  m_Size: {x: 2.7099319, y: 2.184709, z: 2.541869}
+  m_Center: {x: -0.033496253, y: -0.5923546, z: 0.05643753}
 --- !u!1 &7911477940026620014
 GameObject:
   m_ObjectHideFlags: 0
@@ -93,7 +93,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7911477940026620014}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0.00321, y: -0.0004, z: 0.05203}
+  m_LocalPosition: {x: 0, y: -0, z: 0.05639}
   m_LocalScale: {x: 0.0075907223, y: 0.0075907237, z: 0.0075907223}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -112,8 +112,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.8345694, b: 0.5518868, a: 1}
-  m_Intensity: 0.18
-  m_Range: 0.2625156
+  m_Intensity: 35
+  m_Range: 0.17269622
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -298,6 +298,26 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3316992658331686828, guid: 3b070a06d8981e6438ddf0b8ffd5dafc,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 6317578925029434746, guid: 3b070a06d8981e6438ddf0b8ffd5dafc,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c20c5d79915a8304ca4a0bb93cdaf2f9, type: 2}
+    - target: {fileID: 7071182760956848314, guid: 3b070a06d8981e6438ddf0b8ffd5dafc,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6d6a5a1d95da8cc4a95f32c032fea026, type: 2}
+    - target: {fileID: 7202271454713460447, guid: 3b070a06d8981e6438ddf0b8ffd5dafc,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6d6a5a1d95da8cc4a95f32c032fea026, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

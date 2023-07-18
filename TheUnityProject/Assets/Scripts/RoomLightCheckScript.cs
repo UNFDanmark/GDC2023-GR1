@@ -19,7 +19,7 @@ public class RoomLightCheckScript : MonoBehaviour
     public CandleScript candles;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         lightAmount = lights.Count;
         

@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class PointCounter : MonoBehaviour
 {
-    private int points = 0;
-    private int maxPoints = 0;
+    private float points = 0;
+    private float maxPoints = 0;
     private RoomLightCheckScript room;
     private int candle;
     
@@ -15,6 +15,7 @@ public class PointCounter : MonoBehaviour
     private Image lightBar;
     private Image lightBarFX;
     private Image shadowBarFX;
+    private float desiredLocation;
 
     [SerializeField] public float meterMoveSpeed;
 
@@ -23,7 +24,7 @@ public class PointCounter : MonoBehaviour
         for (int i = 0; i < transform.childCount; i++)
         {
             room = gameObject.transform.GetChild(i).gameObject.transform.GetChild(0).GetComponent<RoomLightCheckScript>();
-            
+            maxPoints += room.lightAmount;
         }
         
         lightBar = lightMeterComponents[0];
@@ -44,8 +45,17 @@ public class PointCounter : MonoBehaviour
         }
         
         //Make lightMeter move
-        lightBar.fillAmount -= 1.0f / meterMoveSpeed * Time.deltaTime;
-        lightBarFX.fillAmount -= 1.0f / meterMoveSpeed * Time.deltaTime;
-        shadowBarFX.fillAmount -= 1.0f / waitmeterMoveSpeedTime * Time.deltaTime;
+        desiredLocation = points / maxPoints;
+      //  lightBar.fillAmount = desiredLocation;
+        lightBar.fillAmount = Mathf.Lerp(lightBar.fillAmount, desiredLocation, Time.deltaTime);
+
+        /*
+        for (int i = 0; i < (points/maxPoints) * 100; i++)
+        {
+            lightBar.fillAmount += (1/maxPoints) / meterMoveSpeed * Time.deltaTime;
+            lightBarFX.fillAmount -= (1/maxPoints) / meterMoveSpeed * Time.deltaTime;
+            //shadowBarFX.fillAmount -= (1/maxPoints) / meterMoveSpeed * Time.deltaTime;
+        }*/
+
     }
 }

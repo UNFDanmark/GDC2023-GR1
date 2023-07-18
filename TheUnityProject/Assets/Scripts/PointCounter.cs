@@ -41,17 +41,18 @@ public class PointCounter : MonoBehaviour
             room = gameObject.transform.GetChild(i).gameObject.transform.GetChild(0).GetComponent<RoomLightCheckScript>();
             candle = room.lightsOnInTotal;
             points += candle;
-            Debug.Log("Points: " + points);
         }
         
         //Make lightMeter move
         desiredLocation = points / maxPoints;
         
-      //  lightBar.fillAmount = desiredLocation;
         float blend = MathF.Pow(0.5f, Time.deltaTime * lerpSpeed);
         lightBar.fillAmount = Mathf.Lerp(lightBar.fillAmount, desiredLocation, blend);
         lightBarFX.fillAmount = Mathf.Lerp(lightBarFX.fillAmount, desiredLocation, blend);
         shadowBarFX.fillAmount = Mathf.Lerp(shadowBarFX.fillAmount, 1 - desiredLocation, blend);
 
+        //Check which player is in the lead
+        
+        
     }
 }

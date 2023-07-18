@@ -2,23 +2,53 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class CandleScript : MonoBehaviour
 {
     private bool player1IsNear;
     private bool player2IsNear;
+    private Transform flame;
+
+    public int currentLightState;
+    //previousLightState starts different from all possible states
+    public int previousLightState = 2;
 
     // Update is called once per frame
+
+    private void Start()
+    {
+        currentLightState = 0;
+        
+        
+        flame = gameObject.transform.GetChild(0).gameObject.transform.Find("Flame");
+
+        if (flame.gameObject.activeSelf == true)
+        {
+            previousLightState = currentLightState;
+            currentLightState = 1;
+        }
+
+    }
+
     void Update()
     {
-        if (player1IsNear && Input.GetKeyDown(KeyCode.E))
+        if (player1IsNear && Input.GetKeyDown(KeyCode.E) && previousLightState == currentLightState)
         {
-            transform.GetChild(1).gameObject.SetActive(true);
+            flame.gameObject.SetActive(true);
             
+            previousLightState = currentLightState;
+            currentLightState = 1;
+
+
         }
         else if (player2IsNear && Input.GetKeyDown(KeyCode.RightControl))
         {
-            transform.GetChild(1).gameObject.SetActive(false);
+            flame.gameObject.SetActive(false);
+            
+            previousLightState = currentLightState;
+            currentLightState = -1;
+
         }
     }
 

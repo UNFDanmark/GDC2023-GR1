@@ -1,52 +1,72 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class RoomLightCheckScript : MonoBehaviour
 {
+    private int lightAmount = 0;
+    private int lightsOnInTotal = 0;
+    private Transform roomLight;
+    private Transform roomNeutral;
 
-    private int lightAmount;
+    [SerializeField] private List<GameObject> lights;
+    private Transform flame;
 
-    private int lightsOn;
+    private CandleScript candles;
+
     // Start is called before the first frame update
     void Start()
     {
+        lightAmount = lights.Count;
+
+        //Check how many lights are on
+        for (int i = 0; i < lightAmount; i++)
+        {
+            candles = lights[i].GetComponent<CandleScript>();
+            lightsOnInTotal += candles.currentLightState;
+        }
         
+        roomLight = gameObject.transform.GetChild(0);
+        roomNeutral = gameObject.transform.GetChild(1);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (lightsOn >= lightAmount)
+        for (int i = 0; i < lightAmount; i++)
         {
-            //Bunnyroom
+            candles = lights[i].GetComponent<CandleScript>();
+            if (candles.previousLightState != candles.currentLightState)
+            {
+                Debug.Log("Lights on: " + candles.currentLightState);
+                lightsOnInTotal += candles.currentLightState;
+                candles.previousLightState = candles.currentLightState;
+            }
+            
         }
         
-        else if (lightsOn <= 0)
+        //Change roomlight depending on lightstate
+        if (lightsOnInTotal >= lightAmount)
         {
-            //Ghostroom
-        }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Light"))
-        {
-            lightAmount++;
+            Debug.Log("LightRoom");
+            roomLight.gameObject.SetActive(true);
+            roomNeutral.gameObject.SetActive(false);
         }
 
-        if (other.CompareTag("Flame"))
+        if (lightsOnInTotal > 0 && lightsOnInTotal < lightAmount)
         {
-            lightsOn++;
+            Debug.Log("NeutralRoom");
+            roomLight.gameObject.SetActive(false);
+            roomNeutral.gameObject.SetActive(true);
         }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Flame"))
+        
+        if (lightsOnInTotal <= 0)
         {
-            lightsOn--;
+            Debug.Log("DarkRoom");
+            roomNeutral.gameObject.SetActive(false);
         }
     }
 }
+

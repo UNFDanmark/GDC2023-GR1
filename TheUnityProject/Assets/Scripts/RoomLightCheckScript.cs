@@ -6,27 +6,25 @@ using UnityEngine;
 
 public class RoomLightCheckScript : MonoBehaviour
 {
-    private int lightAmount = 0;
-    private int lightsOnInTotal = 0;
+    public int lightAmount = 0;
+    public int lightsOnInTotal = 0;
+    public bool addPoints = false;
+    
     private Transform roomLight;
     private Transform roomNeutral;
 
     [SerializeField] private List<GameObject> lights;
     private Transform flame;
 
-    private CandleScript candles;
+    public CandleScript candles;
 
     // Start is called before the first frame update
     void Start()
     {
         lightAmount = lights.Count;
-
-        //Check how many lights are on
-        for (int i = 0; i < lightAmount; i++)
-        {
-            candles = lights[i].GetComponent<CandleScript>();
-            lightsOnInTotal += candles.currentLightState;
-        }
+        
+        //Must have start value
+        candles = lights[0].GetComponent<CandleScript>();
         
         roomLight = gameObject.transform.GetChild(0);
         roomNeutral = gameObject.transform.GetChild(1);
@@ -39,8 +37,7 @@ public class RoomLightCheckScript : MonoBehaviour
         {
             candles = lights[i].GetComponent<CandleScript>();
             if (candles.previousLightState != candles.currentLightState)
-            {
-                Debug.Log("Lights on: " + candles.currentLightState);
+            { 
                 lightsOnInTotal += candles.currentLightState;
                 candles.previousLightState = candles.currentLightState;
             }

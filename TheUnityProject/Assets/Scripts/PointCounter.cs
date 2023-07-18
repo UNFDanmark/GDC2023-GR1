@@ -17,7 +17,7 @@ public class PointCounter : MonoBehaviour
     private Image shadowBarFX;
     private float desiredLocation;
 
-    [SerializeField] public float meterMoveSpeed;
+    [SerializeField] private float lerpSpeed = 0.5f;
 
     private void Start()
     {
@@ -46,16 +46,12 @@ public class PointCounter : MonoBehaviour
         
         //Make lightMeter move
         desiredLocation = points / maxPoints;
+        
       //  lightBar.fillAmount = desiredLocation;
-        lightBar.fillAmount = Mathf.Lerp(lightBar.fillAmount, desiredLocation, Time.deltaTime);
-
-        /*
-        for (int i = 0; i < (points/maxPoints) * 100; i++)
-        {
-            lightBar.fillAmount += (1/maxPoints) / meterMoveSpeed * Time.deltaTime;
-            lightBarFX.fillAmount -= (1/maxPoints) / meterMoveSpeed * Time.deltaTime;
-            //shadowBarFX.fillAmount -= (1/maxPoints) / meterMoveSpeed * Time.deltaTime;
-        }*/
+        float blend = MathF.Pow(0.5f, Time.deltaTime * lerpSpeed);
+        lightBar.fillAmount = Mathf.Lerp(lightBar.fillAmount, desiredLocation, blend);
+        lightBarFX.fillAmount = Mathf.Lerp(lightBarFX.fillAmount, desiredLocation, blend);
+        shadowBarFX.fillAmount = Mathf.Lerp(shadowBarFX.fillAmount, 1 - desiredLocation, blend);
 
     }
 }

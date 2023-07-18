@@ -8,8 +8,7 @@ public class RoomLightCheckScript : MonoBehaviour
 {
     public int lightAmount = 0;
     public int lightsOnInTotal = 0;
-    public bool addPoints = false;
-    
+
     private Transform roomLight;
     private Transform roomNeutral;
 
@@ -19,7 +18,7 @@ public class RoomLightCheckScript : MonoBehaviour
     public CandleScript candles;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         lightAmount = lights.Count;
         

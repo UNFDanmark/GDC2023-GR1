@@ -46,6 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cd150d21290833419b3eb1be0213a14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentLightState: 0
+  previousLightState: 0
 --- !u!65 &5751057836082747313
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -271,7 +273,7 @@ PrefabInstance:
     - target: {fileID: -6733177361254619370, guid: 3b070a06d8981e6438ddf0b8ffd5dafc,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -6733177361254619370, guid: 3b070a06d8981e6438ddf0b8ffd5dafc,
         type: 3}

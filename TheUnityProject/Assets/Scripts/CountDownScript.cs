@@ -11,6 +11,8 @@ public class CountDownScript : MonoBehaviour
     [SerializeField] private int startTime;
     [SerializeField] private int timeSeconds;
     [SerializeField] private int timeMinutes;
+    [SerializeField] private AudioSource normMusic;
+    [SerializeField] private AudioSource speedMusic;
 
     public static bool gameEnded = false;
     
@@ -51,6 +53,13 @@ public class CountDownScript : MonoBehaviour
             counter.text = timeMinutes.ToString("D2") + ":" + timeSeconds.ToString("D2");
             yield return new WaitForSeconds(1f);
 
+            if (timeMinutes == 0 && timeSeconds == 30)
+            {
+                //Play fast music
+                normMusic.Pause();
+                speedMusic.Play();
+            }
+            
         }
     }
 

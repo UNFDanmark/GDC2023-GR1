@@ -22,8 +22,17 @@ public class P1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        hMove = Input.GetAxis("Horizontal_P1");
-        vMove = Input.GetAxis("Vertical_P1");
+        if (CountDownScript.gameEnded == false)
+        {
+            hMove = Input.GetAxis("Horizontal_P1");
+            vMove = Input.GetAxis("Vertical_P1");
+        }
+        else
+        {
+            hMove = 0;
+            vMove = 0;
+        }
+        
         Vector3 movementDirection = new Vector3(hMove, 0, vMove);
         movementDirection.Normalize();
         

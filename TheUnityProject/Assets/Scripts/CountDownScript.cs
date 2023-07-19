@@ -10,7 +10,7 @@ public class CountDownScript : MonoBehaviour
     [SerializeField] private int timeSeconds;
     [SerializeField] private int timeMinutes;
 
-    private bool gameEnded = false;
+    public static bool gameEnded = false;
     
     // Start is called before the first frame update
     void Start()
@@ -19,12 +19,6 @@ public class CountDownScript : MonoBehaviour
         StartCoroutine(Countdown());
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    
     private IEnumerator Countdown()
     {
         while (true)
@@ -34,6 +28,7 @@ public class CountDownScript : MonoBehaviour
                 if (timeMinutes == 0)
                 {
                     gameEnded = true;
+                    Debug.Log("Game has ended");
                     yield break;
                 }
                 

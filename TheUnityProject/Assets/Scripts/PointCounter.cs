@@ -63,6 +63,15 @@ public class PointCounter : MonoBehaviour
         {
             p1Win = false;
         }
+
+        if (p1Win == true && CountDownScript.gameEnded == true)
+        {
+            //P1 win screen
+        }
+        else if (p1Win == false && CountDownScript.gameEnded == true)
+        {
+            //P2 win screen
+        }
         
         
     }

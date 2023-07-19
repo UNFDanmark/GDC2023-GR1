@@ -36,13 +36,13 @@ MonoBehaviour:
     m_DescentLine: -21.2
     m_SuperscriptOffset: 84.8
     m_SuperscriptSize: 0.5
-    m_SubscriptOffset: -21.2
-    m_SubscriptSize: 0.5
+    m_SubscriptOffset: -21.24
+    m_SubscriptSize: 1
     m_UnderlineOffset: -15.900001
     m_UnderlineThickness: 5.3
     m_StrikethroughOffset: 16.8
     m_StrikethroughThickness: 5.3
-    m_TabWidth: 30
+    m_TabWidth: 30.02
   m_GlyphTable:
   - m_Index: 3
     m_Metrics:
@@ -2418,12 +2418,12 @@ MonoBehaviour:
   - regularTypeface: {fileID: 0}
     italicTypeface: {fileID: 0}
   fontWeights: []
-  normalStyle: 0
-  normalSpacingOffset: 5.01
-  boldStyle: 1.5
-  boldSpacing: 7
+  normalStyle: 1.15
+  normalSpacingOffset: 2.4
+  boldStyle: 2.12
+  boldSpacing: 7.9
   italicStyle: 35
-  tabSize: 10
+  tabSize: 25
 --- !u!28 &7884485172709655370
 Texture2D:
   m_ObjectHideFlags: 0
@@ -2546,8 +2546,8 @@ Material:
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
     - _ScaleRatioA: 0.8333333
-    - _ScaleRatioB: 0.5208333
-    - _ScaleRatioC: 0.5208333
+    - _ScaleRatioB: 0.39166668
+    - _ScaleRatioC: 0.39166668
     - _ScaleX: 1
     - _ScaleY: 1
     - _ShaderFlags: 0
@@ -2566,8 +2566,8 @@ Material:
     - _UnderlaySoftness: 0
     - _VertexOffsetX: 0
     - _VertexOffsetY: 0
-    - _WeightBold: 1.5
-    - _WeightNormal: 0
+    - _WeightBold: 2.12
+    - _WeightNormal: 1.15
     m_Colors:
     - _ClipRect: {r: -32767, g: -32767, b: 32767, a: 32767}
     - _EnvMatrixRotation: {r: 0, g: 0, b: 0, a: 0}

@@ -9,7 +9,7 @@ public class PointCounter : MonoBehaviour
 {
     private float points = 0;
     private float maxPoints = 0;
-    public bool p1Win;
+    public static bool p1Win;
     private RoomLightCheckScript room;
     private int candle;
 

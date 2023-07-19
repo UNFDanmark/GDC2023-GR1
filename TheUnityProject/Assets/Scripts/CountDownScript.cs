@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CountDownScript : MonoBehaviour
 {
@@ -19,6 +21,14 @@ public class CountDownScript : MonoBehaviour
         StartCoroutine(Countdown());
     }
 
+    private void Update()
+    {
+        if (gameEnded == true)
+        {
+            SceneManager.LoadScene(2, LoadSceneMode.Single);
+        }
+    }
+
     private IEnumerator Countdown()
     {
         while (true)
@@ -27,8 +37,8 @@ public class CountDownScript : MonoBehaviour
             {
                 if (timeMinutes == 0)
                 {
-                    gameEnded = true;
                     Debug.Log("Game has ended");
+                    gameEnded = true;
                     yield break;
                 }
                 

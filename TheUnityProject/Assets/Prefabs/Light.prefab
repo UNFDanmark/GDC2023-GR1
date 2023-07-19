@@ -46,6 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cd150d21290833419b3eb1be0213a14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  p1Animations: {fileID: 0}
+  p2Animations: {fileID: 0}
   currentLightState: 0
   previousLightState: 0
 --- !u!65 &5751057836082747313

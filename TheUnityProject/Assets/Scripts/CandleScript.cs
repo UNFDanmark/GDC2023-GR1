@@ -6,6 +6,9 @@ using UnityEngine.Serialization;
 
 public class CandleScript : MonoBehaviour
 {
+    [SerializeField] private Animator p1Animations;
+    [SerializeField] private Animator p2Animations;
+    
     private bool player1IsNear;
     private bool player2IsNear;
     private Transform flame;
@@ -36,6 +39,7 @@ public class CandleScript : MonoBehaviour
         if (player1IsNear && Input.GetKeyDown(KeyCode.E) && currentLightState != 1 &&
             CountDownScript.gameEnded == false)
         {
+            
             flame.gameObject.SetActive(true);
             currentLightState = 1;
         }
@@ -43,6 +47,8 @@ public class CandleScript : MonoBehaviour
                  CountDownScript.gameEnded == false)
 
         {
+            p2Animations.SetBool("IsTurningCandleOff", true);
+            
             flame.gameObject.SetActive(false);
             currentLightState = -1;
         }

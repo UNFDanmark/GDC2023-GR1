@@ -37,12 +37,13 @@ public class CandleScript : MonoBehaviour
         {
             flame.gameObject.SetActive(true);
             currentLightState = 1;
-            
+
 
 
         }
-        else if (player2IsNear && Input.GetKeyDown(KeyCode.RightControl) && currentLightState != -1)
-        {
+        else if (player2IsNear && Input.GetKeyDown(KeyCode.RightControl) && currentLightState == 1)
+
+    {
             flame.gameObject.SetActive(false);
             currentLightState = -1;
 

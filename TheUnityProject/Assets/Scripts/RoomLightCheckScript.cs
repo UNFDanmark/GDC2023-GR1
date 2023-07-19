@@ -8,8 +8,7 @@ public class RoomLightCheckScript : MonoBehaviour
 {
     public int lightAmount = 0;
     public int lightsOnInTotal = 0;
-    public bool addPoints = false;
-    
+
     private Transform roomLight;
     private Transform roomNeutral;
 

@@ -11,6 +11,7 @@ public class CandleScript : MonoBehaviour
     private Transform flame;
 
     public int currentLightState;
+
     //previousLightState starts different from all possible states
     public int previousLightState = 2;
 
@@ -19,8 +20,8 @@ public class CandleScript : MonoBehaviour
     private void Start()
     {
         currentLightState = 0;
-        
-        
+
+
         flame = gameObject.transform.GetChild(0).gameObject.transform.Find("Flame");
 
         if (flame.gameObject.activeSelf == true)
@@ -28,25 +29,22 @@ public class CandleScript : MonoBehaviour
             previousLightState = currentLightState;
             currentLightState = 1;
         }
-
     }
 
     void Update()
     {
-        if (player1IsNear && Input.GetKeyDown(KeyCode.E) && currentLightState != 1)
+        if (player1IsNear && Input.GetKeyDown(KeyCode.E) && currentLightState != 1 &&
+            CountDownScript.gameEnded == false)
         {
             flame.gameObject.SetActive(true);
             currentLightState = 1;
-
-
-
         }
-        else if (player2IsNear && Input.GetKeyDown(KeyCode.RightControl) && currentLightState == 1)
+        else if (player2IsNear && Input.GetKeyDown(KeyCode.RightControl) && currentLightState == 1 &&
+                 CountDownScript.gameEnded == false)
 
-    {
+        {
             flame.gameObject.SetActive(false);
             currentLightState = -1;
-
         }
     }
 
@@ -58,10 +56,10 @@ public class CandleScript : MonoBehaviour
         }
         else if (other.CompareTag("P2"))
         {
-            player2IsNear = true; 
+            player2IsNear = true;
         }
     }
-    
+
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("P1"))

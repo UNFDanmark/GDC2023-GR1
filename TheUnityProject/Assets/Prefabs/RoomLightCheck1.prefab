@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1234442879001528026}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.1806031, y: -0.201, z: -3.229}
+  m_LocalPosition: {x: 0.253, y: -0.209, z: -2.757}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -44,11 +44,11 @@ Light:
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 0.3207547, g: 0.23922645, b: 0.16491634, a: 1}
-  m_Intensity: 161.79
-  m_Range: 26.67
-  m_SpotAngle: 45
-  m_InnerSpotAngle: 45
+  m_Color: {r: 0.9960785, g: 0.6901961, b: 0.08627451, a: 1}
+  m_Intensity: 7
+  m_Range: 77.4
+  m_SpotAngle: 60.7
+  m_InnerSpotAngle: 37.105843
   m_CookieSize: 10
   m_Shadows:
     m_Type: 0
@@ -162,10 +162,10 @@ Light:
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 0.5377358, g: 0.10399607, b: 0.44438636, a: 1}
-  m_Intensity: 161.79
-  m_Range: 4.6082067
-  m_SpotAngle: 30
+  m_Color: {r: 0.9245283, g: 0.86925954, b: 0.80678177, a: 1}
+  m_Intensity: 140
+  m_Range: 77.4
+  m_SpotAngle: 60.781464
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
@@ -194,7 +194,7 @@ Light:
       e32: 0
       e33: 1
     m_UseCullingMatrixOverride: 0
-  m_Cookie: {fileID: 0}
+  m_Cookie: {fileID: 2800000, guid: 3c9fd24635071b9478e16b5710a4bd5f, type: 3}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
   m_RenderMode: 0
@@ -304,9 +304,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6017041535d69ca45a886829d29a808b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lightAmount: 0
+  lightsOnInTotal: 0
   lights:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  candles: {fileID: 0}

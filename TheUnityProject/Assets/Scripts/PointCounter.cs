@@ -9,7 +9,7 @@ public class PointCounter : MonoBehaviour
 {
     private float points = 0;
     private float maxPoints = 0;
-    public bool p1Win;
+    public static bool p1Win;
     private RoomLightCheckScript room;
     private int candle;
 
@@ -62,6 +62,15 @@ public class PointCounter : MonoBehaviour
         else
         {
             p1Win = false;
+        }
+
+        if (p1Win == true && CountDownScript.gameEnded == true)
+        {
+            //P1 win screen
+        }
+        else if (p1Win == false && CountDownScript.gameEnded == true)
+        {
+            //P2 win screen
         }
         
         

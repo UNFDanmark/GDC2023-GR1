@@ -15,6 +15,7 @@ public class ButtonScript : MonoBehaviour
     {
         theme.Pause();
         startSfx.Play();
+        CountDownScript.gameEnded = false;
         StartCoroutine(EnumeratorStart());
     }
     

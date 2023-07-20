@@ -37,7 +37,7 @@ public class CandleScript : MonoBehaviour
 
     void Update()
     {
-        if (player1IsNear && Input.GetKeyDown(KeyCode.E) && currentLightState != 1 &&
+        if (player1IsNear && Input.GetKeyDown(KeyCode.LeftControl) && currentLightState != 1 &&
             CountDownScript.gameEnded == false)
         {
             p1Animations.SetBool("IsDoneWithLights", false);

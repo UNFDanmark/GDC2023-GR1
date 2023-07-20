@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EndOfWallAnim : StateMachineBehaviour
+public class OnEndOfCandleAnim : StateMachineBehaviour
 {
     public static bool wallAnimOk = false;
 // OnStateUpdate is called before OnStateUpdate is called on any state inside this state machine
@@ -10,8 +10,7 @@ public class EndOfWallAnim : StateMachineBehaviour
     {
         if (stateInfo.normalizedTime >= 1)
         {
-            animator.SetBool("IsHittingWall", false);
-            wallAnimOk = true;
+            animator.SetBool("IsTurningCandleOff", false);
 
         }
     }

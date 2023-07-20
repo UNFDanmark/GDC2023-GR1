@@ -45,7 +45,7 @@ public class P2 : MonoBehaviour
             transform.forward = movementDirection;
         }
 
-        if (hMove != 0 || vMove != 0)
+        if (hMove != 0 || vMove != 0 && animations.GetBool("IsTurningCandleOff") == false)
         {
             animations.SetBool("IsWalking", true);
         }
@@ -73,12 +73,11 @@ public class P2 : MonoBehaviour
         if (other.CompareTag("WallSlow"))
         {
             animations.SetBool("IsHittingWall", true);
-            
-            if (hMove != 0 && vMove != 0)
+            if (hMove != 0 || vMove != 0 && EndOfWallAnim.wallAnimOk) 
             {
-                animations.SetBool("IsHittingWall", false);
                 animations.SetBool("IsInWall", true);
             }
+            
             inWall = true;
             inWalls++;
         }

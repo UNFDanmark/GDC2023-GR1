@@ -15,20 +15,28 @@ public class ButtonScript : MonoBehaviour
     {
         theme.Pause();
         startSfx.Play();
-        StartCoroutine(Enumerator());
+        StartCoroutine(EnumeratorStart());
     }
     
     //Go from result screen to main menu
     public void ReturnToMainMenu()
     {
-        Debug.Log("Going to main menu...");
-        SceneManager.LoadScene(0, LoadSceneMode.Single);
+        StartCoroutine(EnumeratorWin());
     }
 
-    private IEnumerator Enumerator()
+    private IEnumerator EnumeratorStart()
     {
         yield return new WaitForSeconds(3f);
         Debug.Log("Going to gameScene...");
         SceneManager.LoadScene(1, LoadSceneMode.Single);
     }
+    
+    private IEnumerator EnumeratorWin()
+    {
+        startSfx.Play();
+        yield return new WaitForSeconds(0.2f);
+        Debug.Log("Going to main menu...");
+        SceneManager.LoadScene(0, LoadSceneMode.Single);
+    }
+    
 }

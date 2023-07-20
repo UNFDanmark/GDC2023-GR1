@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 64f2299cd222c124bb68aeb3bcdd34d0
+guid: a12c46d6dcc218b41a477d30ba943b4e
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -64,7 +64,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Wall In
       takeName: Armature|ArmatureAction
-      internalID: 5449073193131188545
+      internalID: -1246731831762816583
       firstFrame: 60
       lastFrame: 90
       wrapMode: 0
@@ -91,11 +91,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Wall Out
+      name: Wall Move
       takeName: Armature|ArmatureAction
-      internalID: 5791946125966785038
-      firstFrame: 150
-      lastFrame: 200
+      internalID: 4594303134292970328
+      firstFrame: 110
+      lastFrame: 130
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -120,18 +120,18 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Wall Move
+      name: Wall Out
       takeName: Armature|ArmatureAction
       internalID: 3696890337287820257
-      firstFrame: 110
-      lastFrame: 130
+      firstFrame: 150
+      lastFrame: 200
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -180,7 +180,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Idle
       takeName: Armature|ArmatureAction
-      internalID: 8569247068082238595
+      internalID: -6363362177140661055
       firstFrame: 340
       lastFrame: 379
       wrapMode: 0
@@ -189,7 +189,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0

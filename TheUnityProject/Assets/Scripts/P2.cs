@@ -12,6 +12,7 @@ public class P2 : MonoBehaviour
     [SerializeField] private float wallMoveSpeed = 0.5f;
 
     private Rigidbody rb;
+    [SerializeField] private Animator animations;
 
     private bool inWall = false;
     private int inWalls = 0;
@@ -43,6 +44,15 @@ public class P2 : MonoBehaviour
         {
             transform.forward = movementDirection;
         }
+
+        if (hMove != 0 || vMove != 0 && animations.GetBool("IsTurningCandleOff") == false)
+        {
+            animations.SetBool("IsWalking", true);
+        }
+        else
+        {
+            animations.SetBool("IsWalking", false);
+        }
     }
     
     private void FixedUpdate()
@@ -50,6 +60,7 @@ public class P2 : MonoBehaviour
         if (inWall)
         {
             rb.velocity = new Vector3(hMove * wallMoveSpeed, rb.velocity.y, vMove * wallMoveSpeed);
+            
         }
         else
         {
@@ -61,6 +72,12 @@ public class P2 : MonoBehaviour
     {
         if (other.CompareTag("WallSlow"))
         {
+            animations.SetBool("IsHittingWall", true);
+            if (hMove != 0 || vMove != 0 && EndOfWallAnim.wallAnimOk) 
+            {
+                animations.SetBool("IsInWall", true);
+            }
+            
             inWall = true;
             inWalls++;
         }
@@ -70,6 +87,9 @@ public class P2 : MonoBehaviour
     {
         if (other.CompareTag("WallSlow") && inWall)
         {
+            animations.SetBool("IsInWall", false);
+            animations.SetBool("IsLeavingWall", true);
+            
             inWalls--;
             if (inWalls < 1)
             {

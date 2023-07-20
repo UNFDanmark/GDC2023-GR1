@@ -12,6 +12,7 @@ public class P1 : MonoBehaviour
     [SerializeField] private float moveSpeed = 1f;
 
     private Rigidbody rb;
+    [SerializeField] private Animator animations;
     
     // Start is called before the first frame update
     void Start()
@@ -24,8 +25,17 @@ public class P1 : MonoBehaviour
     {
         if (CountDownScript.gameEnded == false)
         {
-            hMove = Input.GetAxis("Horizontal_P1");
-            vMove = Input.GetAxis("Vertical_P1");
+            if (animations.GetBool("IsDoneWithLights") == true)
+            {
+                hMove = Input.GetAxis("Horizontal_P1");
+                vMove = Input.GetAxis("Vertical_P1");
+            }
+            else
+            {
+                hMove = 0;
+                vMove = 0;
+            }
+            
         }
         else
         {
@@ -38,7 +48,12 @@ public class P1 : MonoBehaviour
         
         if (movementDirection != Vector3.zero)
         {
+            animations.SetBool("IsWalking", true);
             transform.forward = movementDirection;
+        }
+        else
+        {
+            animations.SetBool("IsWalking", false);
         }
     }
 

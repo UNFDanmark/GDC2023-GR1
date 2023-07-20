@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6177d2d048a018d42b818086baa23848, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3.5
+  moveSpeed: 3
   animations: {fileID: 1556682283}
 --- !u!4 &27718352
 Transform:
@@ -1764,7 +1764,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 853c47c77e828994ea560ff036f90a87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normMoveSpeed: 2
+  normMoveSpeed: 1
   wallMoveSpeed: 0.5
   animations: {fileID: 1904834596}
 --- !u!54 &144513759

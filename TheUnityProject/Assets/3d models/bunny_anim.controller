@@ -37,7 +37,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Light Out
-  m_Speed: 3
+  m_Speed: 5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 3265190689836345890}
@@ -145,7 +145,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Light In
-  m_Speed: 3
+  m_Speed: 5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -165868680637680882}

@@ -1,0 +1,4 @@
+Undead Estate er et 1v1 top-down turfwar spil, hvor du og en ven hver tager rollen af enten kaninen Barry eller spøgelset Gary. 
+Barry har lige købt et nyt hus og glæder sig til at flytte ind men lyset bliver ved med at slukke. 
+Gary er spøgelset der har boet i huset i mange år og han vil bare gerne slappe af i sit mørke.
+Vil du suse rundt med Barrys fart for at tænde alt lyset eller vil du bruge Garys specielle evner som spøgelse til at slukke lysene og beholde mørket?
